@@ -1,3 +1,54 @@
 {
-  "extends": "next/core-web-vitals"
+  "root": true,
+  // parser を設定
+  "parser": "@typescript-eslint/parser",
+  // tsconfig.json のパスを設定
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "prettier",
+    "plugin:tailwindcss/recommended"
+  ],
+  "plugins": ["@typescript-eslint", "import", "unused-imports", "tailwindcss"],
+  "rules": {
+    // あった方が良さそうなルール
+    "semi": "error",
+    "no-console": "warn",
+    "no-var": "error",
+    // import 文の順序に関するルール
+    "sort-imports": 0,
+    "no-unused-vars": "warn",
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          ["parent", "sibling"],
+          "object",
+          "type",
+          "index"
+        ],
+        "newlines-between": "always",
+        "pathGroupsExcludedImportTypes": ["builtin"],
+        "alphabetize": { "order": "asc", "caseInsensitive": true }
+      }
+    ],
+    // 使用されていない import に関するルール
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "warn",
+      { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+    ],
+    "tailwindcss/classnames-order": "warn",
+    "tailwindcss/no-custom-classname": "warn",
+    "tailwindcss/no-contradicting-classname": "error"
+  }
 }
