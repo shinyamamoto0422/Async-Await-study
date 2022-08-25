@@ -1,7 +1,12 @@
 import Link from 'next/link';
 import { FC, ReactNode } from 'react';
 
-const items = [{ href: '/', label: 'Home' }];
+const items = [
+  { href: '/', label: 'Home' },
+  { href: '/demos', label: 'Demos' },
+  { href: '/exception', label: 'Exception' },
+  { href: '/explanation', label: 'Explanation' },
+];
 
 const NavBar = () => {
   return (
