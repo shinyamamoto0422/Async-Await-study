@@ -52,11 +52,12 @@ const Synchronous: NextPage = () => {
       }, 1000 * Math.random());
     });
   };
+
   dummyFetch('/success/data').then(onFullfilled, (response) => {
     // console.log(response);
   });
-  dummyFetch('/failure/data').then(onFullfilled, (response) => {
-    //console.log(response);
+  dummyFetch('/failure/data').catch((error) => {
+    console.log(error);
   });
 
   return (

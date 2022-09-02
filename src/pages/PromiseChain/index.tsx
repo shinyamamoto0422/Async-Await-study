@@ -7,7 +7,7 @@ import { AppLink } from '@/components/uiParts/AppLink';
 
 // ランダムでFullfiled or Rejectedを返す関数を定義
 const randomFullfilledOrReject = () => {
-  return Math.random() > 0.5 ? Promise.resolve('成功') : Promise.reject(new Error('失敗'));
+  return Math.random() > 0.5 ? Promise.resolve('成功') : Promise.reject(new Error('あああ失敗'));
 };
 randomFullfilledOrReject()
   .then(function onFullfilled(value) {

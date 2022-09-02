@@ -63,13 +63,12 @@ const Demos: NextPage = () => {
   const fetchPokemon = async () => {
     // 1~150のidを指定して、forで回して、それぞれのポケモンを取得し、それを配列に入れる。その後、それぞれの画像を表示させる
     const pokeArray: pokemonType[] = [];
-    for (let i = 1; i <= 300; i++) {
+    for (let i = 1; i <= 400; i++) {
       // awaitは既存の構文と組み合わせて利用することができる・Promiseのみの場合は、Promiseチェーン・コールバック関数を使った反復処理を実装する必要がある
       const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${i}`);
       // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
       const data: pokemonData = await res.json();
-      // console.log('data', data);
-
+      console.log('data', data);
       pokeArray.push({
         name: data.name,
         url: data.sprites.front_default,
