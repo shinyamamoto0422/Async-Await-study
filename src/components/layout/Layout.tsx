@@ -6,11 +6,14 @@ const items = [
   { href: '/demos', label: 'Demos' },
   { href: '/exception', label: 'Exception' },
   { href: '/explanation', label: 'Explanation' },
+  { href: '/compare', label: 'Compare' },
+  { href: '/PromiseChain', label: 'PromiseChain' },
+  { href: 'AsyncFunction', label: 'AsyncFunction' },
 ];
 
 const NavBar = () => {
   return (
-    <nav className="w-screen bg-gray-800">
+    <nav className="z-10 w-screen bg-gray-800">
       <div className="flex h-12 items-center pl-4">
         <div className="flex space-x-1 text-sm">
           {items.map(({ href, label }) => {

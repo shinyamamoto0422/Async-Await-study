@@ -10,7 +10,7 @@ export const AppLink: FC<Props> = ({ href, title, className }) => {
   return (
     <div className={`${!className ? '' : className}`}>
       <Link href={`${href}`}>
-        <a className="text-blue-800 hover:text-blue-700" target="_blank" rel="noopener noreferrer">
+        <a className="text-blue-800 hover:text-blue-700" rel="noopener noreferrer">
           {title}
         </a>
       </Link>

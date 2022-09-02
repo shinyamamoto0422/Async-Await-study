@@ -4,6 +4,10 @@ import { useState } from 'react';
 import { Layout } from '@/components/layout/Layout';
 import { TwoColumn } from '@/components/uiGroup/TwoColumn';
 import { BoxWithText } from '@/components/uiParts/AppBox';
+import { AppLink } from '@/components/uiParts/AppLink';
+
+import { AsyncAwait } from './AsyncAwait';
+import { PromiseFetchGithubName } from './PromiseFetchGirhubName';
 
 import type { NextPage } from 'next';
 
@@ -29,10 +33,10 @@ const Synchronous: NextPage = () => {
     reject(new Error('error'));
   });
   const onFullfilled = () => {
-    console.log('onFullfilled');
+    // console.log('onFullfilled');
   };
   const onRejected = () => {
-    console.log('onRejected');
+    // console.log('onRejected');
   };
   executor.then(onFullfilled, onRejected);
 
@@ -49,10 +53,10 @@ const Synchronous: NextPage = () => {
     });
   };
   dummyFetch('/success/data').then(onFullfilled, (response) => {
-    console.log(response);
+    // console.log(response);
   });
   dummyFetch('/failure/data').then(onFullfilled, (response) => {
-    console.log(response);
+    //console.log(response);
   });
 
   return (
@@ -60,6 +64,15 @@ const Synchronous: NextPage = () => {
       <Text weight="bold" size="lg">
         例外処理
       </Text>
+      <Text>
+        例外処理とは
+        非同期処理関係で言うとデータを取得する際などに、エラー（例外）が発生した際にどう処理するかを指定することです。
+        {/* それぞれ、PromiseやAsync Await、それらの中で使用するtry catch / pending fulfilled refectedなどありますが、
+        それらは例外処理するために使用するものです。
+          */}
+      </Text>
+
+      <br />
 
       <TwoColumn
         title="setTimeoutの中で例外処理を行う"
@@ -90,10 +103,20 @@ const Synchronous: NextPage = () => {
                 </List.Item>
               </List>
             </List.Item>
-            <List.Item>Async Function</List.Item>
           </List>
         }
       />
+
+      <PromiseFetchGithubName />
+      <Text weight={700}>
+        結局は、非同期処理をした後に成功・失敗がある。成功した時に、thenで次にどういう処理をするのか。失敗した時に、rejectやcatchで次にどういう処理をするのか。を指定して繋いでいくイメージ
+      </Text>
+      <Text>
+        今回は、一つのPromiseに対して繋いでいったが、複数の非同期処理をつなぐこともできる（Promiseチェーン）
+        →
+        <AppLink title="PromiseChain" href="/PromiseChain" />
+      </Text>
+      <AsyncAwait />
     </Layout>
   );
 };

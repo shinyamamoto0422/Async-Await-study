@@ -10,11 +10,11 @@ const Explanation: NextPage = () => {
   // todo: 説明
   const d = new Date();
   const year = d.getFullYear();
-  console.log(year);
+  // console.log(year);
 
   // todo: プリミティブの値に.ドットが付くとJSの自動型変換機能によって文字列からStringオブジェクトに変換される
   const lower = 'HeLLOO'.toLowerCase();
-  console.log(lower);
+  // console.log(lower);
 
   // todo: オブジェクト
   const dyna = {
@@ -24,23 +24,23 @@ const Explanation: NextPage = () => {
     favorite: 'music', //プロパティ
     speak: function () {
       //メソッド→オブジェクトの操作・プロパティに関数を設定したもの
-      console.log('hello');
+      // console.log('hello');
     },
   };
   dyna.speak();
 
   // todo:インスタンス・コンストラクタ
   const obj = new Object();
-  console.log('インスタンスからの呼び出しはできない', obj.length);
-  console.log('コンストラクタからの呼び出しはできる', Object.length);
+  //console.log('インスタンスからの呼び出しはできない', obj.length);
+  // console.log('コンストラクタからの呼び出しはできる', Object.length);
 
   function Man(name: string, age: number) {
     //コンストラクタ
-    this.name = name;
-    this.age = age;
+    // this.name = name;
+    // this.age = age;
   }
-  const harry = new Man('Harry', 18); //インスタンスを作成
-  console.log(harry.age, harry.name);
+  //const harry = new Man('Harry', 18); //インスタンスを作成
+  // console.log(harry.age, harry.name);
 
   return (
     <Layout>
